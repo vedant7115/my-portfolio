@@ -127,6 +127,35 @@ export function setCharTimeline(
     }
   } else {
     if (character) {
+      tl1
+        .fromTo(character.rotation, { y: 0 }, { y: 0.5, duration: 1 }, 0)
+        .to(camera.position, { z: 30 }, 0)
+        .fromTo(".character-model", { y: "0%" }, { y: "-40%", duration: 1 }, 0)
+        .to(".landing-container", { opacity: 0, duration: 0.4 }, 0)
+        .to(".landing-container", { y: "20%", duration: 0.8 }, 0);
+
+      tl2
+        .to(camera.position, { z: 45, y: 5, duration: 6, delay: 2, ease: "power2.out" }, 0)
+        .to(".about-section", { opacity: 0, delay: 3, duration: 2 }, 0)
+        .fromTo(
+          ".character-model",
+          { opacity: 1 },
+          { opacity: 0, delay: 4, duration: 2 },
+          0
+        )
+        .to(character.rotation, { y: 0.9, delay: 3, duration: 3 }, 0)
+        .to(monitor.material, { opacity: 1, duration: 0.8, delay: 3.2 }, 0)
+        .to(screenLight.material, { opacity: 1, duration: 0.8, delay: 4.5 }, 0)
+        .fromTo(
+          monitor.position,
+          { y: -10, z: 2 },
+          { y: 0, z: 0, delay: 1.5, duration: 3 },
+          0
+        );
+
+      tl3
+        .fromTo(".whatIDO", { y: 0 }, { y: "10%", duration: 2 }, 0);
+
       const tM2 = gsap.timeline({
         scrollTrigger: {
           trigger: ".what-box-in",
