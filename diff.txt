@@ -1,0 +1,117 @@
+diff --git a/index.html b/index.html
+index c9e4904..100ef02 100644
+--- a/index.html
++++ b/index.html
+@@ -1,13 +1,16 @@
+ <!DOCTYPE html>
+ <html lang="en">
+-  <head>
+-    <meta charset="UTF-8" />
+-    <!-- <link rel="icon" type="image/svg+xml" href="/" /> -->
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>Moncy Yohannan - Creative Developer | Designer</title>
+-  </head>
+-  <body>
+-    <div id="root"></div>
+-    <script type="module" src="/src/main.tsx"></script>
+-  </body>
+-</html>
++
++<head>
++  <meta charset="UTF-8" />
++  <!-- <link rel="icon" type="image/svg+xml" href="/" /> -->
++  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++  <title>Vedant Saubhri - Software Developer | Designer</title>
++</head>
++
++<body>
++  <div id="root"></div>
++  <script type="module" src="/src/main.tsx"></script>
++</body>
++
++</html>
+\ No newline at end of file
+diff --git a/src/components/Work.tsx b/src/components/Work.tsx
+index 10eb7ac..019df77 100644
+--- a/src/components/Work.tsx
++++ b/src/components/Work.tsx
+@@ -53,21 +53,40 @@ const Work = () => {
+           My <span>Work</span>
+         </h2>
+         <div className="work-flex">
+-          {[...Array(6)].map((_value, index) => (
++          {[
++            {
++              title: "AI-Powered Solar Energy Optimizer",
++              category: "Avishkaar Hackathon – Finalist",
++              tools: "Deep Learning, GRU, Python, Time-Series Forecasting",
++              image: "/images/placeholder.webp",
++            },
++            {
++              title: "MayaNetra Content Detection",
++              category: "AI vs Human Text Detection",
++              tools: "NLP, LLMs, TF-IDF, SVM, Transformers",
++              image: "/images/placeholder.webp",
++            },
++            {
++              title: "AYUSH–ICD-11 Medical Code Mapping",
++              category: "Smart India Hackathon 2025",
++              tools: "Transformer Embeddings, Ontology Alignment",
++              image: "/images/placeholder.webp",
++            },
++          ].map((project, index) => (
+             <div className="work-box" key={index}>
+               <div className="work-info">
+                 <div className="work-title">
+                   <h3>0{index + 1}</h3>
+ 
+                   <div>
+-                    <h4>Project Name</h4>
+-                    <p>Category</p>
++                    <h4>{project.title}</h4>
++                    <p>{project.category}</p>
+                   </div>
+                 </div>
+                 <h4>Tools and features</h4>
+-                <p>Javascript, TypeScript, React, Threejs</p>
++                <p>{project.tools}</p>
+               </div>
+-              <WorkImage image="/images/placeholder.webp" alt="" />
++              <WorkImage image={project.image} alt={project.title} />
+             </div>
+           ))}
+         </div>
+diff --git a/src/components/utils/GsapScroll.ts b/src/components/utils/GsapScroll.ts
+index f900385..9e35687 100644
+--- a/src/components/utils/GsapScroll.ts
++++ b/src/components/utils/GsapScroll.ts
+@@ -1,12 +1,18 @@
+ import * as THREE from "three";
+ import gsap from "gsap";
+ 
++let charIntervalId: number | null = null;
++let screenLightTimeline: gsap.core.Timeline | null = null;
++
+ export function setCharTimeline(
+   character: THREE.Object3D<THREE.Object3DEventMap> | null,
+   camera: THREE.PerspectiveCamera
+ ) {
++  if (charIntervalId !== null) clearInterval(charIntervalId);
++  if (screenLightTimeline) screenLightTimeline.kill();
++
+   let intensity: number = 0;
+-  setInterval(() => {
++  charIntervalId = window.setInterval(() => {
+     intensity = Math.random();
+   }, 200);
+   const tl1 = gsap.timeline({
+@@ -52,7 +58,8 @@ export function setCharTimeline(
+       object.material.transparent = true;
+       object.material.opacity = 0;
+       object.material.emissive.set("#C8BFFF");
+-      gsap.timeline({ repeat: -1, repeatRefresh: true }).to(object.material, {
++      screenLightTimeline = gsap.timeline({ repeat: -1, repeatRefresh: true });
++      screenLightTimeline.to(object.material, {
+         emissiveIntensity: () => intensity * 8,
+         duration: () => Math.random() * 0.6,
+         delay: () => Math.random() * 0.1,
