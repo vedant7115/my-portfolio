@@ -21,14 +21,14 @@ const CertificationsPreview = () => {
         
         <div className="cert-snippet-container" onClick={handleScrollToCerts}>
           <div className="cert-snippet card-1">
-            <img src="/images/avishkar.jpg" alt="Certificate 1" />
+            <img src="/images/amazonml certificate.jpg" alt="Amazon ML Summer School" />
           </div>
           <div className="cert-snippet card-2">
-            <img src="/images/mayanetra.png" alt="Certificate 2" />
+            <img src="/images/ai certificate nptel.jpg" alt="NPTEL AI" />
           </div>
           <div className="cert-snippet card-3">
              <div className="more-overlay">+ View All</div>
-             <img src="/images/react2.webp" alt="Certificate 3" />
+             <img src="/images/ccna-introduction-to-networks.png" alt="Cisco CCNA" />
           </div>
         </div>
       </div>
