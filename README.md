@@ -1,65 +1,42 @@
-# My Portfolio Website - Overview 🚀
+# Awwwards-Level 3D Portfolio Experience
 
-This repository contains the open-source version of my personal portfolio website.  
-Feel free to explore the code and use it for learning and inspiration.
+A visually stunning, high-performance interactive portfolio built focusing on maximum user engagement. It leverages **React**, **Three.js** (R3F), and **GSAP ScrollSmoother** to provide a buttery-smooth narrative experience as you scroll.
 
----
+![Portfolio Preview Showcase](/public/images/mayanetra.png) *(Placeholder showcase preview)*
 
-## ⚠️ Usage Notice
+## ✨ Key Features
+- 🚀 **Interactive 3D Avatar:** A dynamic 3D model that loads, tracks your cursor movements, and physically scrolls with you out of view via precise GSAP scroll triggers.
+- 😂 **Physics-Enabled Tech Stack:** Built with `@react-three/rapier`, throwing around skill sphere nodes via realistic physics when navigating.
+- 💨 **Buttery Smooth Scrolling:** Utilizes GSAP `ScrollSmoother` and advanced CSS transforms to ensure perfect 60fps scrolling without layout thrashing.
+- 🏆 **Certifications Showcase:** A "touch-compatible" horizontal infinite slider powered by `react-fast-marquee`, wrapped in glassmorphism UI.
+- 🎨 **Awwwards Level Aesthetics:** Minimalist typography, custom cursor, custom load-screens, subtle SVG-morphing glows, and dynamic magnetic UI hover links.
 
-This project is shared for learning purposes only.
+## 🛠️ Tech Stack & Dependencies
+- **Frontend Framework**: React 18, Vite, TypeScript
+- **3D Graphics & Physics**: Three.js, `@react-three/fiber`, `@react-three/drei`, `@react-three/rapier` 
+- **Animations & Routing**: GSAP (ScrollTrigger, ScrollSmoother, ScrollTo)
+- **UI Components**: custom CSS, `react-fast-marquee`, `react-icons`
+- **Analytics**: Vercel Analytics Hooked
 
-Please do NOT:
-- Clone or replicate the full website or design
-- Repost it with minor content changes
-- Use this project for commercial/client work
-- Create tutorials or content using this exact project
+## 🚀 Running Locally
 
-If you use parts of the code, you must provide proper credit linking back to the original repository.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/vedant7115/my-portfolio.git
+   cd my-portfolio
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Start the Vite Dev Server:**
+   ```bash
+   npm run dev
+   ```
+4. Check out the site at `http://localhost:5173/` !
 
-Build your own version — don’t just copy.
-
-— Moncy Yohannan
-
----
-
-## 🛠️ Instructions
-
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
-
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
-
----
-
-## ⚙️ Tech Stack
-
-React • TypeScript • GSAP • Three.js • WebGL • HTML • CSS • JavaScript
-
----
-
-## 🎨 Assets Usage
-
-Some 3D assets included in this repository are free to use for learning purposes.
-
-However:
-
-- The original 3D avatar used on my live portfolio is NOT included in this repository
-- That avatar is a custom asset created over ~1 month
-- It is not open source and not available for reuse
-
-Any usage, extraction, or redistribution of that avatar from my live website is strictly prohibited.
+## 🏗️ Architecture Note on GSAP
+This project deeply integrates CSS transforms with the GSAP environment. Heavy DOM manipulation limits have been set, utilizing strictly GPU-backed properties (`transform`, `opacity`) to ensure the ScrollSmoother instance never suffers from jitter when computing `window.scrollY`.
 
 ---
-
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
-
----
-
-## 📄 License
-
-This project is licensed under the Personal Portfolio License (PPL) v1.0.
-
-See the LICENSE file for full details
-
+*Developed with a passion for pushing UI/UX boundaries.*
