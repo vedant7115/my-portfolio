@@ -1,0 +1,100 @@
+.cert-preview-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--cWidth);
+  margin: auto;
+  padding: 80px 0;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.cert-preview-content {
+  text-align: center;
+  width: 100%;
+}
+
+.cert-preview-content h3.title {
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: 400;
+  color: var(--accentColor);
+  margin-bottom: 20px;
+}
+
+.cert-preview-content p.para {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.cert-snippet-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  position: relative;
+  height: 250px;
+}
+
+.cert-snippet {
+  width: 200px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cert-snippet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card-1 {
+  transform: translateX(-120px) rotate(-10deg);
+  z-index: 1;
+}
+.card-2 {
+  transform: translateX(0px) translateY(-20px) scale(1.1);
+  z-index: 3;
+}
+.card-3 {
+  transform: translateX(120px) rotate(10deg);
+  z-index: 2;
+}
+
+.cert-snippet-container:hover .card-1 {
+  transform: translateX(-180px) rotate(-5deg) scale(1.1);
+  z-index: 4;
+}
+.cert-snippet-container:hover .card-2 {
+  transform: translateX(0px) translateY(-40px) scale(1.2);
+  z-index: 4;
+}
+.cert-snippet-container:hover .card-3 {
+  transform: translateX(180px) rotate(5deg) scale(1.1);
+  z-index: 4;
+}
+
+.cert-snippet:hover {
+  box-shadow: 0 15px 40px rgba(194, 164, 255, 0.4);
+  border-color: rgba(194, 164, 255, 0.5);
+}
+
+.more-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  z-index: 2;
+}
